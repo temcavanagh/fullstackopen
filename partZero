@@ -54,3 +54,26 @@ of the request object req.
 The Server creates a new note 
 object, and adds it to an 
 array called notes.
+
+0.5 Single page app
+
+title Create a diagram depicting the situation where the user goes to the single page app version of the notes app
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/spa
+server-->browser: HTML code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server-->browser: main.js
+
+note over browser:
+Browser executes JavaScript code
+which requests JSON data from server
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.JSON
+server-->browser: JSON file notes
+
+note over browser:
+Browser executes event handler 
+which renders notes on the screen
