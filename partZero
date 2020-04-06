@@ -77,3 +77,23 @@ server-->browser: JSON file notes
 note over browser:
 Browser executes event handler 
 which renders notes on the screen
+
+0.6 New note SPA
+
+title Create a diagram depicting the situation where user creates a new note using the single page version of the app
+
+note over browser:
+New note is created and rendered in browser using JavaScript
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+New note JSON data is sent to server for storage
+end note
+
+server-->browser: 201 - Post created
+
+note over browser: 
+Server confirms data receipt and new note updated
+end note
