@@ -150,14 +150,39 @@ Objects:
     object1['secret number'] = 12341
 
 Functions:
-    Defining arrow functions:
-        eg. 
-        const sum = (p1, p2) => {
-        console.log(p1)
-        console.log(p2)
-        return p1 + p2
+  Defining arrow functions:
+    eg. 
+      const sum = (p1, p2) => {
+      console.log(p1)
+      console.log(p2)
+      return p1 + p2
+      }
+  calling the function:
+    const result = sum(1, 5)
+    console.log(result)
+  You can use the arrow function in functions containing a single expression.
+    eg.
+      const square = p => p * p
+    This form is handy when manipulating arrays, e.g. using the map method.
+      eg.
+        const t = [1, 2, 3]
+        const tSquared = t.map(p => p * p) 
+        // tSquared is now [1, 4, 9]
+  Defining functions: 2 ways
+    function declaration:
+      The function declaration (function statement) defines a function with the specified parameters.
+        eg.
+        function product(a, b) {
+        return a * b
         }
-    calling the function:
-        const result = sum(1, 5)
-        console.log(result)
-    
+        const result = product(2, 6)
+        // result is now 12
+    function expression:
+      The function keyword can be used to define a function inside an expression.
+      There is no need to give the function a name and the definition may reside among the rest of the code.
+      eg. 
+        const average = function(a, b) {
+          return (a + b) / 2
+        }
+        const result = average(2, 5)
+        // result is now 3.5
