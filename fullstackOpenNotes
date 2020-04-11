@@ -7,56 +7,55 @@ Part 1
 React components:
 
 JSX:
-    Looks like HTML but compiles into JavaScript. 
-    Compiles using Babel. 
-    With JSX you can easily embed dynamic content by writing appropriate JavaScript within curly braces.
-    JSX is "XML-like", which means that every tag needs to be closed.
-        eg. <br />
+  Programming language
+  Looks like HTML but compiles into JavaScript. 
+  Compiles using Babel. 
+  Easily embed dynamic content by writing appropriate JavaScript within curly braces.
+  JSX is "XML-like", which means that every tag needs to be closed.
+    eg. <br />
 
 Multiple components:
-    Core philosophy of React is composing applications from many specialized reusable components.
+  Core philosophy of React is composing applications from many specialized reusable components.
 
 props: passing data to components
-    It is possible to pass data to components using so called props.
-        eg.
-const Hello = (props) => {
-  return (
-    <div>
-      <p>
-        Hello {props.name}, you are {props.age} years old
-      </p>
-    </div>
-  )
-}
-
-const App = () => {
-  const name = 'Peter'
-  const age = 10
-
-  return (
-    <div>
-      <h1>Greetings</h1>
-      <Hello name="Maya" age={26 + 10} />
-      <Hello name={name} age={age} />
-    </div>
-  )
-}
+  It is possible to pass data to components using props.
+  eg.
+  const Hello = (props) => {
+    return (
+      <div>
+        <p>
+          Hello {props.name}, you are {props.age} years old
+        </p>
+      </div>
+    )
+  }
+  const App = () => {
+    const name = 'Peter'
+    const age = 10
+    return (
+      <div>
+       <h1>Greetings</h1>
+        <Hello name="Maya" age={26 + 10} />
+        <Hello name={name} age={age} />
+      </div>
+    )
+  }
 
 (b) JavaScript
 
 JavaScript:
-    The official name of the Javascript standard is ECMAScript.
-    Transpiled by Babel.
-    Javascript is sort of reminiscent, both in name and syntax, to Java.
-    But the core mechanisms of the languages could not be more different
+  The official name of the Javascript standard is ECMAScript.
+  Transpiled by Babel.
+  Javascript is sort of reminiscent, both in name and syntax, to Java.
+  But the core mechanisms of the languages could not be more different
 
 Node.js:
-    A Javascript runtime environment based on Google's chrome V8 Javascript engine.
-    Works practically anywhere - from servers to mobile phones.
-    The code is written into files ending with .js and are run by issuing the command node name_of_file.js
+  A Javascript runtime environment based on Google's chrome V8 Javascript engine.
+  Works practically anywhere - from servers to mobile phones.
+  The code is written into files ending with .js and are run by issuing the command node name_of_file.js
 
 Variables:
-    eg.
+  eg.
     const x = 1
     let y = 5   
     console.log(x, y)   // 1, 5 are printed
@@ -66,16 +65,16 @@ Variables:
     console.log(x, y)   // 1, sometext are printed
     x = 4               // causes an error
 
-    const : does not actually define a variable but a constant for which the value can no longer be changed. 
-    let : defines a normal variable.
-    var : use of var in this course is not advised.
+  const : does not actually define a variable but a constant for which the value can no longer be changed. 
+  let : defines a normal variable.
+  var : use of var in this course is not advised.
 
 Arrays:
-    Arrays are list-like objects whose prototype has methods to perform traversal and mutation operations. 
-    Neither the length of a JavaScript array nor the types of its elements are fixed. 
-    Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, 
-    JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them.
-    eg.
+  List-like objects whose prototype has methods to perform traversal and mutation operations. 
+  Neither the length of a JavaScript array nor the types of its elements are fixed. 
+  Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, 
+  JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them.
+  eg.
     const t = [1, -1, 3]
     t.push(5)
     console.log(t.length) // 4 is printed
@@ -87,47 +86,47 @@ Arrays:
     Because the array is an object the variable always points to the same object. 
     The content of the array changes as new items are added to it.
 
-    forEach : Iterates through items of an array.
-        forEach receives a function defined using the arrow syntax as a parameter: =>
-        forEach calls the function for each of the items in the array, always passing the individual item as a parameter.
-        eg.
-    value => {
-      console.log(value)
-    }
+  forEach : Iterates through items of an array.
+    forEach receives a function defined using the arrow syntax as a parameter: =>
+    forEach calls the function for each of the items in the array, always passing the individual item as a parameter.
+      eg.
+      value => {
+        console.log(value)
+      }
 
 When using React, techniques from functional programming are often used. 
 One characteristic of the functional programming paradigm is the use of immutable data structures.
 
 Immutable data structures:
-    In object-oriented and functional programming, an immutable object (unchangeable object) is an object 
-    whose state cannot be modified after it is created.
-    This is in contrast to a mutable object (changeable object), which can be modified after it is created.
+  In object-oriented and functional programming, an immutable object (unchangeable object)
+  is an object whose state cannot be modified after it is created.
+  This is in contrast to a mutable object (changeable object), which can be modified after it is created.
 
 concat:
-    In React code, it is preferable to use the method concat , which does not add the item to the array, 
-    but creates a new array in which the content of the old array and the new item are both included.
-    eg.
+  In React code, it is preferable to use the method concat , which does not add the item to the array, 
+  but creates a new array in which the content of the old array and the new item are both included.
+  eg.
     const t = [1, -1, 3]
     const t2 = t.concat(5)
     console.log(t)  // [1, -1, 3] is printed
     console.log(t2) // [1, -1, 3, 5] is printed
 
 map method:
-    Based on an existing array, map creates a new array, for which the function given as a parameter is used to create the items.
-    eg.
+  Based on an existing array, map creates a new array, for which the function given as a parameter is used to create the items.
+  eg.
     const t = [1, 2, 3]
     const m1 = t.map(value => value * 2)
     console.log(m1)   // [2, 4, 6] is printed
 
-    eg.
+  eg.
     const m2 = t.map(value => '<li>' + value + '</li>')
     console.log(m2)  
     // [ '<li>1</li>', '<li>2</li>', '<li>3</li>' ] is printed
     Here an array filled with integer values is transformed into an array containing strings of HTML using the map method.
 
 Destructuring assignment:
-    A JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
-    eg.
+  A JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables.
+  eg.
     const t = [1, 2, 3, 4, 5]
     const [first, second, ...rest] = t
     console.log(first, second)  // 1, 2 is printed
@@ -136,18 +135,18 @@ Destructuring assignment:
     The remaining integers are "collected" into an array of their own which is then assigned to the variable rest.
 
 Objects:
-    object literals:
-        A list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({}).
+  Object literals:
+    A list of zero or more pairs of property names and associated values of an object, enclosed in curly braces ({}).
     The values of the properties can be of any type, like integers, strings, arrays, objects.
     The properties of an object are referenced by using the "dot" notation, or by using brackets.
     eg. 
-    console.log(object1.name)
-    console.log(object1[fieldName])
+      console.log(object1.name)
+      console.log(object1[fieldName])
     
     You can also add properties to an object on the fly by either using dot notation or using brackets.
     eg.
-    object1.address = 'Helsinki'
-    object1['secret number'] = 12341
+      object1.address = 'Helsinki'
+      object1['secret number'] = 12341
 
 Functions:
   Defining arrow functions:
