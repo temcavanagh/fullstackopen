@@ -185,3 +185,51 @@ Functions:
         }
         const result = average(2, 5)
         // result is now 3.5
+
+(c) Component state, event handlers
+
+Destructuring: 
+  The destructuring assignment syntax is a JavaScript expression that makes it possible to 
+  unpack values from arrays, or properties from objects, into distinct variables.
+
+Page re-rendering:
+  ReactDOM.render
+
+Stateful components:
+  React State Hook
+
+Event handling:
+  a user's interaction with the different elements of a web page can cause a collection 
+  of various different kinds of events to be triggered.
+
+Event handler is a function:
+
+Passing state to child components:
+
+Changes in state cause rerendering:
+
+Refactoring the components:
+
+
+(d) A more complex state, debugging React applications
+
+Complex state:
+  useState function multiple times to create separate "pieces" of state.
+
+Handling arrays:
+
+Conditional rendering:
+
+Old React:
+
+Debugging React applications:
+
+Rules of hooks:
+  useState function must not be called from inside of a loop, a conditional expression, 
+  or any place that is not a function defining a component. 
+  This must be done to ensure that the hooks are always called in the same order, 
+  and if this isn't the case the application will behave erratically.
+  hooks may only be called from the inside of a function body that defines a React component
+
+Event handling revisited:
+  
