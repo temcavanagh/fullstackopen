@@ -232,4 +232,21 @@ Rules of hooks:
   hooks may only be called from the inside of a function body that defines a React component
 
 Event handling revisited:
-  
+  eg. Clicking of a button to reset stored value.
+  Event handlers must always be a function or a reference to a function.
+
+Function that returns a function:
+  Another way to define a event handler is to use function that returns a function.
+
+Passing Event Handlers to Child Components:
+  const Button = (props) => (
+  <button onClick={props.handleClick}>
+    {props.text}
+  </button>
+  )
+  The component gets the event handler function from the handleClick prop, 
+  and the text of the button from the text prop.
+
+Do Not Define Components Within Components:
+  Never define components inside of other components. 
+  The method provides no benefits and leads to many unpleasant problems.
