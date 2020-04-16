@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 
+const Button = (props) => {
+  return (
+    <button onClick={props.passClick}>
+      {props.text}
+    </button>
+  )
+}
+
 const Statdisplay = ({ text, value }) => {
   return(
     <>
@@ -56,9 +64,9 @@ const App = () => {
     <div>
       <h1>Give feedback</h1>
       <div>
-        <button onClick={handleGood}>Good</button>
-        <button onClick={handleNeutral}>Neutral</button>
-        <button onClick={handleBad}>Bad</button>
+        <Button passClick={handleGood} text="Good"/>
+        <Button passClick={handleNeutral} text="Neutral"/>
+        <Button passClick={handleBad}text="Bad"/>
         <Stats good={good} neutral={neutral} bad={bad}/>
       </div>
     </div>
