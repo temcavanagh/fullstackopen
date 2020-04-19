@@ -9,8 +9,10 @@ const Button = ({passClick, text}) => {
 
 const App = (props) => {
   const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length))
+  const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
 
   const selectNext = () => setSelected(Math.floor(Math.random() * anecdotes.length))
+  const newVote = () => setVotes(votes.map((voteNum, curr) => (curr === selected)? voteNum + 1 : voteNum))
 
   return (
     <div>
@@ -18,6 +20,7 @@ const App = (props) => {
       {props.anecdotes[selected]}
       </td>      
       <Button passClick={selectNext} text="Next anecdote"/>
+      <Button passClick={newVote} text="Vote"/>
     </div>
   )
 }
