@@ -7,6 +7,17 @@ const Button = ({passClick, text}) => {
   )
 }
 
+const MostVotes = ({anecdotes, votes}) => {
+  let maxArr = votes.indexOf(Math.max(...votes))
+  return(
+    <div>
+      <h2>Anecdote with the most votes</h2>
+      <p1>{anecdotes[maxArr]}</p1>
+      <p1> has {votes[maxArr]} votes!</p1>
+    </div>
+  )
+}
+
 const App = (props) => {
   const [selected, setSelected] = useState(Math.floor(Math.random() * anecdotes.length))
   const [votes, setVotes] = useState(Array(anecdotes.length).fill(0))
@@ -16,11 +27,13 @@ const App = (props) => {
 
   return (
     <div>
+      <h2>Anecdote of the day</h2>
       <td>
       {props.anecdotes[selected]}
       </td>      
-      <Button passClick={selectNext} text="Next anecdote"/>
       <Button passClick={newVote} text="Vote"/>
+      <Button passClick={selectNext} text="Next anecdote"/>
+      <MostVotes anecdotes={anecdotes} selected={selected} votes={votes}/>
     </div>
   )
 }
