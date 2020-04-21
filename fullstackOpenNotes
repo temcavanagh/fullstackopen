@@ -250,3 +250,9 @@ Passing Event Handlers to Child Components:
 Do Not Define Components Within Components:
   Never define components inside of other components. 
   The method provides no benefits and leads to many unpleasant problems.
+
+
+Part 2 - Communicating with server
+
+(a) Rendering a collection, modules
+
