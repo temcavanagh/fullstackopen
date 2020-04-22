@@ -256,3 +256,17 @@ Part 2 - Communicating with server
 
 (a) Rendering a collection, modules
 
+console.log:
+  When you pass objects as distinct arguments separated by commas to console.log, 
+  the content of the object is printed to the developer console as strings that are insightful.
+    eg. console.log('props value is', props)
+  This is preferrable to concatenation.
+    eg. console.log('props value is' + props)
+
+Pro-tip: VS Code snippets:
+  i.e. shortcuts for quickly generating commonly re-used portions of code
+
+JavaScript Arrays:
+  Functional programming method.
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+  
