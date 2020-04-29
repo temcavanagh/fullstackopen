@@ -30,12 +30,12 @@ const App = ( props ) => {
     return(
         <div>
             <h1>Notes</h1>
-            <div>
+            <div>                                           {/* Show important */}
                 <button onClick={() => setShowAll(!showAll)}>
                     show {showAll ? 'important' : 'all' }
                 </button>
             </div>
-            <ul>
+            <ul>                                            {/* Display notes list */}
                 {notesToShow.map(note =>
                     <Note key={note.id} note={note} />
                 )}
@@ -45,7 +45,7 @@ const App = ( props ) => {
                     value={newNote}
                     onChange={handleNoteChange}
                 />
-                <button type="submit">save</button>
+                <button type="submit">save</button>         {/* save button */}
             </form>
         </div>
     )
