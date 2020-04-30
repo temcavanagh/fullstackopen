@@ -5,7 +5,6 @@ const App = () => {
     { name: 'Arto Hellas' }
   ]) 
   const [ newName, setNewName ] = useState('')
-  const [ showAll, setShowAll] = useState(true)
 
   const addPerson = (event) => {
     const personsObject = {
