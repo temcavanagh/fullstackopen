@@ -13,7 +13,12 @@ const App = () => {
     }
     event.preventDefault()
     setPersons(persons.concat(personsObject))
+    setNewName('')
   } 
+
+  {/* const existingName = () => {
+    if (persons.includes( newName ))
+  } */}
 
   const handlePersonChange = (event) => {
     console.log(event.target.value)
