@@ -5,20 +5,23 @@ const App = () => {
     { name: 'Arto Hellas' }
   ]) 
   const [ newName, setNewName ] = useState('')
+  const [ warning, setWarning ] = useState('')
 
   const addPerson = (event) => {
-    const personsObject = {
-      name: newName,
-      id: persons.length + 1,
-    }
     event.preventDefault()
-    setPersons(persons.concat(personsObject))
+    const existingNames = persons.map(each => each.name)
+    if (!existingNames.includes(newName)){
+      const personsObject = {
+        name: newName,
+        id: persons.length + 1,
+      }
+      setPersons(persons.concat(personsObject))
+    } else {
+        setWarning('')
+        window.alert( {newName} + 'is already added')
+    }
     setNewName('')
   } 
-
-  {/* const existingName = () => {
-    if (persons.includes( newName ))
-  } */}
 
   const handlePersonChange = (event) => {
     console.log(event.target.value)
