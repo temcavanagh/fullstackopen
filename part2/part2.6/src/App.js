@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
+import Filter from './components/filter' 
 
 const App = () => {
   const [ persons, setPersons ] = useState([
-    { name: 'Arto Hellas', number: '123' }
+    { name: 'Arto Hellas', number: '040-123456' },
+    { name: 'Ada Lovelace', number: '39-44-5323523' },
+    { name: 'Dan Abramov', number: '12-43-234345' },
+    { name: 'Mary Poppendieck', number: '39-23-6423122' }
   ]) 
+  
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber] = useState('')
+  const [ filterNames, setFilterNames ] = useState('') 
 
   const addPerson = (event) => {
     event.preventDefault()
     const existingNames = persons.map(each => each.name)
-    const existingNumbers = persons.map(each => each.number)
     if (!existingNames.includes(newName)){
       const personsObject = {
         name: newName,
@@ -36,10 +41,19 @@ const App = () => {
     setNewNumber(event.target.value)
   }
 
+  const handleFilter = () => {
+    {/* ? persons : persons.filter(persons => persons.name.toLowerCase().includes(filter.toLowerCase)) */}
+  }
+
   return (
     <div>
       <h2>Phonebook</h2>
-      
+      <form onChange={handleFilter}>
+        <div>
+          Filter names: <input />
+        </div>
+      </form>
+      <h2>Contacts</h2>
       <form onSubmit={addPerson}>
         <div>
           name: <input value={newName} onChange={handlePersonChange}/>
