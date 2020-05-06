@@ -50,7 +50,7 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onChange={handleFilter}>
         <div>
-          Filter names: <input />
+          Filter names: <input onChange={handleFilter}/>
         </div>
       </form>
       <h2>Contacts</h2>
