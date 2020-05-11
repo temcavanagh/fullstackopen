@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Filter from './components/filter.js';
-import Persons from './components/persons.js'
+import Persons from './components/persons.js';
+import InputForm from './components/inputform.js';
 
 const App = () => {
   const [ persons, setPersons ] = useState([
@@ -44,28 +45,20 @@ const App = () => {
 
   const handleFilter = (event) => setFilterNames(event.target.value)
 
-  const showPersons = filterNames === ''
-    ? persons
-    : persons.filter(person =>
-        person.name.toLowerCase().includes(filterNames.toLowerCase()))
+  const filterPersons = filterNames === ''
+    ? persons : persons.filter(person => person.name.toLowerCase().includes(filterNames.toLowerCase()))
 
-  const row_names = () => showPersons.map(person => 
-    <p key={person.name}>{person.name} {person.number}</p>
-  )
+  const showContacts = () => filterPersons.map(person => <p key={person.name}>{person.name} {person.number}</p>)
 
   return (
     <div>
-      <h2>Phonebook</h2>
+
       <form onChange={handleFilter}>
-        <div>
-          Filter names: <input onChange={handleFilter}/>
-          <Filter search = {filterNames} onChange = {handleFilter} />
-        </div>
+        <Filter value={filterNames}/>
       </form>
-      
-      <Filter search = {filterNames} onChange = {handleFilter} />
 
       <h2>Contacts</h2>
+
       <form onSubmit={addPerson}>
         <div>
           name: <input value={newName} onChange={handlePersonChange}/>
@@ -77,13 +70,17 @@ const App = () => {
           <button type="submit">add</button>
         </div>
       </form>
+
+      <InputForm 
+        onSubmit={addPerson} 
+        handlePersonChange={handlePersonChange}
+        handleNumberChange={handleNumberChange}
+      />
       
       <h2>Numbers</h2>
-      <table>
-          <td>{persons.map((persons) => (<li>{persons.name} : {persons.number}</li>))} </td>
-          <td> </td>
-      </table>
-      <Persons persons={row_names()} />
+
+      <Persons persons={showContacts()} />
+      
     </div>
   )
 }
