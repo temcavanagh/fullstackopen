@@ -18,7 +18,7 @@ const App = ( props ) => {
     }, [])
     console.log('render', notes.length, 'notes')
 
-    const addNote = (event) => {                            {/* defines addNote event handler; event parameter calls event handler function */}
+    const addNote = (event) => {
         event.preventDefault()
         const noteObject = {
             content: newNote,
@@ -30,7 +30,7 @@ const App = ( props ) => {
         setNewNote('')                            
       }
     
-    const handleNoteChange = (event) => {                   {/* event handler syncs inputs w component state */}
+    const handleNoteChange = (event) => {
         console.log(event.target.value)
         setNewNote(event.target.value)
     }
