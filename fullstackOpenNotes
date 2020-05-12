@@ -293,3 +293,26 @@ Controlled components:
 
 Filtering Display Elements:
 
+
+Part 2(c) Getting Data From Server:
+
+"backend", i.e. server-side functionality
+use a tool meant to be used during software development called JSON Server to act as the server.
+
+$ npx json-server --port 3001 --watch db.json
+
+The browser as a runtime environment
+
+npm
+  node package manager
+  axios library
+  clear indicator that a project uses npm is the package.json file located at the root of the project
+
+$ npm run server 
+$ npm run start-server // runs npm start & npm run server scripts togetther from package.json
+
+Effect hooks
+The Effect Hook lets you perform side effects in function components. 
+Data fetching, setting up a subscription, and manually changing the DOM in React 
+components are all examples of side effects.
+Effect hooks are precisely the right tool to use when fetching data from a server.
