@@ -6,22 +6,21 @@ import axios from 'axios';
 
 const App = () => {
   const [ persons, setPersons ] = useState([])
-  
   const [ newName, setNewName ] = useState('')
   const [ newNumber, setNewNumber] = useState('')
   const [ filterNames, setFilterNames ] = useState('')
 
-  useEffect (() => {
-    console.log('effect')
-    axios
-        .get('http://localhost:3001/persons')
-        .then(response => {
-            console.log('promise fulfilled')
-            setPersons(response.data)
-        })
-}, [])
+    useEffect (() => {
+      console.log('effect')
+      axios
+          .get('http://localhost:3001/persons')
+          .then(response => {
+              console.log('promise fulfilled')
+              setPersons(response.data)
+          })
+  }, [])
 
-console.log('render', persons.length, 'notes')
+  console.log('render', persons.length, 'notes')
 
   const addPerson = (event) => {
     event.preventDefault()
@@ -64,6 +63,8 @@ console.log('render', persons.length, 'notes')
       <form onChange={handleFilter}>
         <Filter value={filterNames}/>
       </form>
+    
+    <div>
 
       <h2>Contacts</h2>
 
@@ -84,7 +85,8 @@ console.log('render', persons.length, 'notes')
         handlePersonChange={handlePersonChange}
         handleNumberChange={handleNumberChange}
       />
-      
+    </div>
+
       <h2>Numbers</h2>
 
       <Persons persons={showContacts()} />
