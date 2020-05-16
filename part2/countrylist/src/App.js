@@ -3,11 +3,18 @@ import axios from 'axios';
 
 const App = () => {
 
-  axios.get('https://restcountries.eu/rest/v2/all')
-  .then(response => {
-  const countries = response.data
-  console.log(countries)
-  })
+  const [ countryList, setCountryList ] = useState([])
+  const [ searchCountry, setSearchCountry] = useState('')
+
+  useEffect (() => {
+    console.log('effect')
+    axios
+      .get('http://localhost:3001/persons')
+      .then(response => setCountryList(response.data))
+  }, [])
+
+  const handleSearch = (event) => {setSearchCountry(event.target.value)}
+  const showSearch = (event) => {setSearchCountry(event.target.value)}
 
   const Filter = ({ filter, handleChange }) => {
     return (
