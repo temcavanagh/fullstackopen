@@ -4,32 +4,32 @@ import axios from 'axios';
 const App = () => {
 
   const [ countryList, setCountryList ] = useState([])
-  const [ searchCountry, setSearchCountry] = useState('')
+  const [ search, setSearch] = useState('')
+  const [ showCountry, setShowCountry] = useState(null)
 
-  useEffect (() => {
-    console.log('effect')
-    axios
-      .get('http://localhost:3001/persons')
-      .then(response => setCountryList(response.data))
-  }, [])
+  const handleSearch = (event) => {setCountryList(event.target.value)}
 
-  const handleSearch = (event) => {setSearchCountry(event.target.value)}
-  const showSearch = (event) => {setSearchCountry(event.target.value)}
+  const hook = () => {
+    const afterData = ( countryData ) => {
+      setSearch(countryData.data);
+    };
+    axios.get('https://restcountries.eu/rest/v2/all').then(afterData);
+  };
+  useEffect(hook, []);
 
-  const Filter = ({ filter, handleChange }) => {
+  // Export Filter as component
+
+  const Filter = ({ countryName, handleChange}) => {
     return (
       <div>
-          <form>
-            Find countries:
-            <input value={filter} onChange={handleChange}/>
-          </form>
+        {countryName}: <input onChange={handleChange}></input>
       </div>
     )
   }
 
   return(
     <div>
-      <Filter />
+      <Filter countryName="Find countries" onChange={handleSearch} />
     </div>
   )
 }
