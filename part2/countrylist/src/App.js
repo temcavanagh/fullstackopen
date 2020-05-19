@@ -7,13 +7,22 @@ const App = () => {
   const [ search, setSearch] = useState('');
   const [ showCountry, setShowCountry] = useState({});
 
+  const weatherData = async country => {
+    let response = await axios.get(
+      `http://api.openweathermap.org/data/2.5/weather?q=${country.capital}&appid=${process.env.REACT_APP_KEY}`
+    )
+    return response.data
+  }
+  
   const handleSearch = event => {
     setSearch(event.target.value); 
     setShowCountry({})
   }
 
   const handleShowCountry = country => {
-    setShowCountry({ ...country })
+    weatherData(country).then(data => {
+      setShowCountry({ ...country, weather: data })
+    })
   }
 
   useEffect(() => {
@@ -42,6 +51,9 @@ const App = () => {
     const languages = showCountry.languages.map(language => {
       return <li key={language.name}>{language.name}</li>
     })
+    const weather = showCountry.weather.weather[0].main
+    const temperature = Math.round(showCountry.weather.main.temp -273)
+    const wind = showCountry.weather.wind[0].speed
     return (
       <div>
         <h2>{showCountry.name}</h2>
@@ -50,6 +62,10 @@ const App = () => {
         <p>Languages: </p>
         <ul>{languages}</ul>
         <img src={showCountry.flag} alt="flag" width={250} height={175} />
+        <h3>Weather in {showCountry.capital}</h3>
+        <div>Temperature: {temperature}</div>
+        <div>Weather: {weather}</div>
+        <div>Wind speed: {wind}</div>
       </div>
     )
   }
