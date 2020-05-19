@@ -11,7 +11,7 @@ const App = () => {
     setSearch(event.target.value); 
     setShowCountry({})
   }
-  
+
   const handleShowCountry = country => {
     setShowCountry({ ...country })
   }
@@ -32,8 +32,7 @@ const App = () => {
     } else {
       return filterCountries.map(country => (
         <div key={country.name}>
-          <div>{country.name}</div>
-          <button onClick={() => handleShowCountry(country)}>Show country</button> 
+          <div>{country.name}<button onClick={() => handleShowCountry(country)}>Show</button> </div>
         </div>
       ))
     }
