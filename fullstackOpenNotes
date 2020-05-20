@@ -326,3 +326,4 @@ REST
 
 Sending data to the server
 
+Extracting communication with the backend into a separate module
