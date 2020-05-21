@@ -327,3 +327,9 @@ REST
 Sending data to the server
 
 Extracting communication with the backend into a separate module
+  Single responsibility principle
+  SOLID
+  Promises - Need to read
+  Async and performance - Need to read
+
+Cleaner syntax for defining object literals
