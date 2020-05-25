@@ -3,6 +3,7 @@ import Filter from './components/filter.js';
 import Persons from './components/persons.js';
 import InputForm from './components/inputform.js';
 import axios from 'axios';
+import personService from './components/personService.js'
 
 const App = () => {
   const [ persons, setPersons ] = useState([])
@@ -22,6 +23,14 @@ const App = () => {
 
   console.log('render', persons.length, 'notes')
 
+  useEffect (() => {
+    personService
+      .getAll()
+      .then(intialPersons => {
+        setPersons(intialPersons)
+      })
+  })
+
   const addPerson = (event) => {
     event.preventDefault()
     const existingNames = persons.map(each => each.name)
@@ -33,7 +42,8 @@ const App = () => {
       }
       setPersons(persons.concat(personsObject))
 
-      // personservice here
+      // personService here
+      
 
     } else {
         alert(`${ newName } is already added to the phonebook`)
