@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react"
 
-const Filter = ({ filter, handleChange }) => {
+const Filter = ( { search, changeHandler }) => {
   return (
-    <div>
-      <h2>Phonebook</h2>
-        <form>
-          Filter shown with:
-          <input value={filter} onChange={handleChange}/>
-        </form>
-    </div>
+    <form className="filterForm">
+      <div>
+        Search contacts:
+          <input value={search} onChange={changeHandler} />
+      </div>
+    </form>
   )
 }
 
