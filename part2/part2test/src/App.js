@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Note from './components/Note'
 import noteService from './services/notes'
 import Notification from './components/Notification'
+import Footer from './components/Footer'
 
 const App = ( props ) => {
     const [notes, setNotes] = useState([])
@@ -88,6 +89,7 @@ const App = ( props ) => {
                 />
                 <button type="submit">save</button>         {/* save button */}
             </form>
+            <Footer />
         </div>
     )
 }

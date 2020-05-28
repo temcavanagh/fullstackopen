@@ -341,3 +341,7 @@ Promises and errors
 Part 2(e) Adding styles to React app
 
 CSS selectors 
+  .classname syntax for defining CSS selectors
+
+Inline styles
+  Write styles directly in React code
