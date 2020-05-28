@@ -345,3 +345,8 @@ CSS selectors
 
 Inline styles
   Write styles directly in React code
+  using style attribute 
+  CSS rules are defined slightly different in JavaScript
+    eg. hyphenated (kebab-case) is written in camelCase
+  limitations
+    eg. pseudo-classes
