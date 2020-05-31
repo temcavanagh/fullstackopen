@@ -350,3 +350,20 @@ Inline styles
     eg. hyphenated (kebab-case) is written in camelCase
   limitations
     eg. pseudo-classes
+
+
+Part 3 - Programming a server with Node.js and expression
+
+  - Backend focus
+  - Implementing functionality on the server side of the stack
+  - Implement a simple REST API in Node.js using Express library
+  - Application data stored in a MongoDB database
+  - Deploy application to the internet
+
+
+Part 3(a) - Node.js and Express
+
+NodeJS is a JavaScript runtime 
+Goal is to implement a backend that will work with notes application from part 2
+
+Simple web server 
