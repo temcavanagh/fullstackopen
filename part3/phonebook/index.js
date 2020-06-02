@@ -27,7 +27,7 @@ let persons = [
   ]
 
 app.get('/', (req, res) => {
-  res.send('<h1>Hello World!</h1>')
+  res.send('<h1>Phonebook</h1>')
 })
 
 app.get('/info', (req, res) => {
@@ -49,31 +49,39 @@ const generateId = () => {
 }
 
 app.post('/api/persons', (request, response) => {
-  const body = request.body
+    const body = request.body
 
-  if (!body.content) {
-    return response.status(400).json({ 
-      error: 'content missing' 
+    if (!body.name || !body.number) {
+        return response.status('400').json({
+            error: 'The name or number is missing'
+        })
+    }
+
+    const findPerson = persons.find(person => {
+        return person.name.toLowerCase() === body.name.toLowerCase()
     })
-  }
 
-  const note = {
-    content: body.content,
-    important: body.important || false,
-    date: new Date(),
-    id: generateId(),
-  }
+    if (findPerson) {
+        return response.status('400').json({
+            error: 'This name already exists in the phonebook'
+        })
+    }
 
-  persons = persons.concat(note)
+    const person = {
+        name: body.name,
+        number: body.number,
+        id: generateId(),
+    }
 
-  response.json(note)
+    persons = persons.concat(person)
+    response.json(persons)
 })
 
 app.get('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
-  const note = persons.find(note => note.id === id)
-  if (note) {
-    response.json(note)
+  const person = persons.find(person => person.id === id)
+  if (person) {
+    response.json(person)
   } else {
     response.status(404).end()
   }
@@ -81,7 +89,7 @@ app.get('/api/persons/:id', (request, response) => {
 
 app.delete('/api/persons/:id', (request, response) => {
   const id = Number(request.params.id)
-  persons = persons.filter(note => note.id !== id)
+  persons = persons.filter(person => person.id !== id)
 
   response.status(204).end()
 })
