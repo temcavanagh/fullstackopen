@@ -5,6 +5,7 @@ const cors = require('cors')
 
 app.use(express.json())
 app.use(cors())
+// cors installed during 3b coursework
 
 app.use(express.static('build'))
 morgan.token('body', function (req, res) {
