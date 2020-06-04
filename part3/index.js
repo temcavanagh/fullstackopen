@@ -27,7 +27,7 @@ let notes = [
   }
 ]
 
-app.get('/', (req, res) => {
+app.get('/api/notes', (req, res) => {
   res.json(notes)
 })
 

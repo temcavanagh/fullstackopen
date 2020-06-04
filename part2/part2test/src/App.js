@@ -46,6 +46,7 @@ const App = ( props ) => {
 
     const toggleImportanceOf = (id) => {
         const url = `http://localhost:3001/notes/${id}`
+        // changed from `http://localhost:3001/notes/${id}` for heroku deployment
         const note = notes.find(n => n.id === id)
         const changedNote = { ...note, important: !note.important }
 
